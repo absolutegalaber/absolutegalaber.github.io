@@ -1,0 +1,26 @@
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Absolutegalaber
+tagline:          Everything changes
+url:              http://absolutegalaber.github.io
+paginate:         1
+baseurl:          /
+authors:
+  esistegalaber:
+    display_name: Josip Mihelko
+    gravatar: 60fd5218fff6927c0ed376cce01c5460
+    twitter: esistegalaber
+    github: esistegalaber
+  absolut:
+      display_name: Peter Schneider-Manzell
+      gravatar: 60fd5218fff6927c0ed376cce01c5460
+      twitter: absolut1978
+      github: pschneider-manzell
+
+# Custom vars
+version:          1.0.0
+github:
+  repo:           https://github.com/poole/poole
