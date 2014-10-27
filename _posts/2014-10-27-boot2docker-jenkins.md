@@ -54,6 +54,7 @@ USER root
 RUN apt-get update && apt-get install bzip2
 USER jenkins
 ```
+
 * Execute `docker build -t "<name_of_your_dockerimage>" .`
 * Execute `docker images` if your image was added
 * Start up jenkins by using `<name_of_your_dockerimage>` instead of `jenkins`
