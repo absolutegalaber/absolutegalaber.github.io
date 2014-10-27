@@ -15,15 +15,15 @@ Installing
 * Install / Update [boot2docker](http://boot2docker.io/)
 * Make sure you can access boot2docker by executing `docker images` (If you are sure boot2docker is running but you get an error message, try executing `$(boot2docker shellinit)`)
 * Download the latest jenkins docker image: `docker pull jenkins`
-* Test if jenkins can be started by 
+* Test if jenkins can be started by
 	* executing `docker run -p 8080:8080 jenkins`
 	* When the VM is running, execute `boot2docker ip` and try opening the URL `http://<IP returned by boot2docker ip>:8080`
 	* Now you should see the Jenkins interface
 
 
 
-Since we did not mount any host folder to the jenkins instance, we need to setup this binding so all job configurations / plugins / etc. are persistent. With boo2docker, mounting host folders to docker images has become very [easy](https://blog.docker.com/2014/10/docker-1-3-signed-images-process-injection-security-options-mac-shared-directories/): 
- 
+Since we did not mount any host folder to the jenkins instance, we need to setup this binding so all job configurations / plugins / etc. are persistent. With boo2docker, mounting host folders to docker images has become very [easy](https://blog.docker.com/2014/10/docker-1-3-signed-images-process-injection-security-options-mac-shared-directories/):
+
 * Create a folder on your mac (e.g. `/opt/development/jenkins_home`)
 * Stop the jenkins image
 * Start the image by executing `docker run -p 8080:8080 -v /opt/development/jenkins_home:/var/jenkins_home jenkins`
@@ -48,23 +48,15 @@ Example: Install bzip2 via `apt-get install bzip2`
 * Create a file named `Dockerfile`
 * Add the following lines:  
 
-```
+
+```bash
 FROM jenkins
 USER root
 RUN apt-get update && apt-get install bzip2
 USER jenkins
 ```
 
+
 * Execute `docker build -t "<name_of_your_dockerimage>" .`
 * Execute `docker images` if your image was added
 * Start up jenkins by using `<name_of_your_dockerimage>` instead of `jenkins`
-
-
-
-
-
-
-
-
-
-
