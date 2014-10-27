@@ -38,6 +38,32 @@ Upgrading
 * Now you can start up jenkins again as described above
 
 
+Customizing
+--------
+
+If you need some custom changes in your jenkins installation:
+
+Example: Install bzip2 via `apt-get install bzip2`
+
+* Create a file named `Dockerfile`
+* Add the following lines:  
+
+```
+FROM jenkins
+USER root
+RUN apt-get update && apt-get install bzip2
+USER jenkins
+```
+* Execute `docker build -t "<name_of_your_dockerimage>" .`
+* Execute `docker images` if your image was added
+* Start up jenkins by using `<name_of_your_dockerimage>` instead of `jenkins`
+
+
+
+
+
+
+
 
 
 
